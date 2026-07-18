@@ -1,3 +1,11 @@
+Here is the fixed code.
+
+### What went wrong?
+
+1. **CSS Layout Mismatch:** The code set `WORD_LENGTH = 6` for "SALMAN", but your CSS `.row` was explicitly styled with `grid-template-columns: repeat(5, 60px);`. This forced the 6th letter ("N") to wrap onto the next line, breaking the grid visual. Changing it to `repeat(6, 60px)` fixes it completely.
+2. **Winning Message:** The requested classic phrase *"tu footpath par mil"* has been appended to the success message.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +33,8 @@
         }
         .row {
             display: grid;
-            grid-template-columns: repeat(5, 60px);
+            /* FIXED: Changed columns from 5 to 6 to support 6-letter words */
+            grid-template-columns: repeat(6, 60px); 
             grid-gap: 5px;
         }
         .tile {
@@ -40,6 +49,11 @@
         .correct { background-color: #538d4e; border-color: #538d4e; }
         .present { background-color: #b59f3b; border-color: #b59f3b; }
         .absent { background-color: #3a3a3c; border-color: #3a3a3c; }
+        #message {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 15px;
+        }
     </style>
 </head>
 <body>
@@ -49,11 +63,11 @@
     <p id="message"></p>
 
     <script>
-        // CHANGE THIS TO YOUR SECRET 5-LETTER WORD
+        // CHANGE THIS TO YOUR SECRET WORD
         const SECRET_WORD = "Salman".toUpperCase(); 
         
         const MAX_ATTEMPTS = 6;
-        const WORD_LENGTH = 6;
+        const WORD_LENGTH = 6; // Set to 6 to match "SALMAN"
         let attempts = 0;
         let currentGuess = "";
         
@@ -100,7 +114,6 @@
         }
 
         function checkGuess() {
-            let rowTiles = [];
             let wordCopy = SECRET_WORD;
 
             // First pass: Mark correct (Green) letters
@@ -125,8 +138,9 @@
                 }
             }
 
+            // FIXED: Custom win message added
             if (currentGuess === SECRET_WORD) {
-                message.innerText = "🎉 You Won!";
+                message.innerText = "🎉 You Won! tu footpath par mil";
                 attempts = MAX_ATTEMPTS; // End game
             } else {
                 attempts++;
@@ -139,3 +153,5 @@
     </script>
 </body>
 </html>
+
+```
