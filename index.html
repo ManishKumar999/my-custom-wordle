@@ -120,7 +120,7 @@
 <body>
 
     <h1>Custom Wordle</h1>
-    <p id="hint">💡 Hint: Rising up against authority</p>
+    <p id="hint">💡 Hint: NA</p>
     
     <div id="grid"></div>
     <p id="message"></p>
@@ -164,7 +164,7 @@
     </div>
 
     <script>
-        const SECRET_WORD = "REVOLT"; 
+        const SECRET_WORD = "MAGNET"; 
         const MAX_ATTEMPTS = 6;
         const WORD_LENGTH = 6; 
         let attempts = 0;
@@ -255,7 +255,7 @@
             }
 
             if (currentGuess === SECRET_WORD) {
-                message.innerHTML = "🎉 <b>You Won!</b><br>Great job guessing REVOLT!";
+                message.innerHTML = "🎉 <b>You Won!</b><br>Stupids boys are naturally drawn to you, hence you lose!";
                 attempts = MAX_ATTEMPTS; // End game
             } else {
                 attempts++;
