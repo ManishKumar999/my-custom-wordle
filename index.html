@@ -33,8 +33,8 @@
         }
         .row {
             display: grid;
-            /* Updated to 6 columns for REVOLT */
-            grid-template-columns: repeat(6, 1fr); 
+            /* Updated to 5 columns for LOSER */
+            grid-template-columns: repeat(5, 1fr); 
             grid-gap: 5px;
         }
         .tile {
@@ -120,7 +120,7 @@
 <body>
 
     <h1>Custom Wordle</h1>
-    <p id="hint">💡 Hint: NA</p>
+    <p id="hint">💡 Hint: YOU</p>
     
     <div id="grid"></div>
     <p id="message"></p>
@@ -164,9 +164,9 @@
     </div>
 
     <script>
-        const SECRET_WORD = "MAGNET"; 
+        const SECRET_WORD = "LOSER"; 
         const MAX_ATTEMPTS = 6;
-        const WORD_LENGTH = 6; 
+        const WORD_LENGTH = 5; 
         let attempts = 0;
         let currentGuess = "";
         
@@ -255,13 +255,13 @@
             }
 
             if (currentGuess === SECRET_WORD) {
-                message.innerHTML = "🎉 <b>You Won!</b><br>Stupids boys are naturally drawn to you, hence you lose!";
+                message.innerHTML = "🎉 <b>You Won!</b><br>Congratulations on discovering self-awareness! 👑✨";
                 attempts = MAX_ATTEMPTS; // End game
             } else {
                 attempts++;
                 currentGuess = "";
                 if (attempts === MAX_ATTEMPTS) {
-                    message.innerHTML = `❌ <b>Game Over!</b><br>The word was <b>${SECRET_WORD}</b>.`;
+                    message.innerHTML = `❌ <b>Game Over!</b><br>The word was <b>${SECRET_WORD}</b>. (Even the hint gave it away!)`;
                 }
             }
         }
