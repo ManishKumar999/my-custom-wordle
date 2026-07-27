@@ -33,8 +33,8 @@
         }
         .row {
             display: grid;
-            /* Updated to 5 columns for LOSER */
-            grid-template-columns: repeat(5, 1fr); 
+            /* Updated to 6 columns for GRUMPY */
+            grid-template-columns: repeat(6, 1fr); 
             grid-gap: 5px;
         }
         .tile {
@@ -120,7 +120,7 @@
 <body>
 
     <h1>Custom Wordle</h1>
-    <p id="hint">💡 Hint: YOU</p>
+    <p id="hint">💡 Hint: Bad mood, or one of the 7 Dwarfs</p>
     
     <div id="grid"></div>
     <p id="message"></p>
@@ -164,9 +164,9 @@
     </div>
 
     <script>
-        const SECRET_WORD = "LOSER"; 
+        const SECRET_WORD = "GRUMPY"; 
         const MAX_ATTEMPTS = 6;
-        const WORD_LENGTH = 5; 
+        const WORD_LENGTH = 6; 
         let attempts = 0;
         let currentGuess = "";
         
@@ -255,13 +255,13 @@
             }
 
             if (currentGuess === SECRET_WORD) {
-                message.innerHTML = "🎉 <b>You Won!</b><br>Congratulations on discovering self-awareness! 👑✨";
+                message.innerHTML = "🎉 <b>You Won!</b><br>Turn that frown upside down! 😠➡️😊";
                 attempts = MAX_ATTEMPTS; // End game
             } else {
                 attempts++;
                 currentGuess = "";
                 if (attempts === MAX_ATTEMPTS) {
-                    message.innerHTML = `❌ <b>Game Over!</b><br>The word was <b>${SECRET_WORD}</b>. (Even the hint gave it away!)`;
+                    message.innerHTML = `❌ <b>Game Over!</b><br>The word was <b>${SECRET_WORD}</b>. Don't be grumpy about it!`;
                 }
             }
         }
